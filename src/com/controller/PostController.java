@@ -25,7 +25,7 @@ import java.util.Date;
 @RequestMapping(value = "post", produces = Utils.textutf8)
 public class PostController {
     @Autowired
-    private PostService postService;
+    private PostService postService;//快递的服务类
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 
     @RequestMapping("getPost")
