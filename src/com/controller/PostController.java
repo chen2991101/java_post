@@ -30,13 +30,14 @@ public class PostController {
 
     @RequestMapping("getPost")
     @ResponseBody
-    public void getPostName(@RequestParam String postNum) {
+    public String getPostName(@RequestParam String postNum) {
         String postName = postService.request("http://www.kuaidi100.com/autonumber/autoComNum?text=" + postNum);
         JSONArray jsonArray = JSONObject.parseObject(postName).getJSONArray("auto");
         if (jsonArray != null && jsonArray.size() > 0) {
             String simpleName = jsonArray.getJSONObject(0).getString("comCode");
             String url = "http://route.showapi.com/64-19?showapi_appid=" + Utils.appId + "&showapi_timestamp=" + dateFormat.format(new Date()) + "&com=" + simpleName + "&nu=" + postNum + "&showapi_sign=" + Utils.secret;
-            System.out.println(postService.request(url));//发送请求
+            return postService.request(url);
         }
+        return null;
     }
 }
