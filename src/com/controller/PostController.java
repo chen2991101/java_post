@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 快递信息
+ * 快递信息的控制器
  * Created by hao on 15/3/27.
  */
 @Controller
